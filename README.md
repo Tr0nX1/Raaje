@@ -15,7 +15,9 @@ Generate bank notices from an Excel/CSV accounts list using a Word template, wit
 
 - Python 3.9+
 - Packages: `pandas`, `openpyxl`, `python-docx`
-- Install: `pip install pandas openpyxl python-docx`
+- Quick setup helper:
+  - `python requirement.py --write` to generate `requirements.txt`
+  - `python requirement.py --install` to install any missing packages
 
 ## Template Expectations
 
@@ -43,6 +45,11 @@ Options:
 - `--tone <formal|urgent|friendly|auto>` Optional tone (default: `formal`)
 - `--font-name <NAME>` Fallback font if template lacks font (default: `Bookman Old Style`)
 - `--font-size <SIZE>` Fallback size in points (default: `8`)
+
+Helper script:
+
+- `python requirement.py --install` installs missing dependencies
+- `python requirement.py --upgrade` upgrades dependencies to latest
 
 ## Quick Start (Windows)
 
@@ -74,6 +81,10 @@ python makenotice.py accounts.xlsx template.docx -o notices --font-name "Bookman
 - Updates the accounts table header and data rows with borders, column widths, and compact spacing
 - Places the bank name below “NODAL OFFICER” using the template’s next-paragraph style
 - Saves one `.docx` per IFSC group into the output directory
+
+Output naming:
+
+- `Notice_<BANK_NAME>_<IFSC>.docx` written to the chosen output directory
 
 ## Troubleshooting
 
